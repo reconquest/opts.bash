@@ -1,0 +1,6 @@
+[submodule "vendor/github.com/reconquest/tests.sh"]
+	path = vendor/github.com/reconquest/tests.sh
+	url = github.com:reconquest/tests.sh
+[submodule "vendor/github.com/reconquest/types.bash"]
+	path = vendor/github.com/reconquest/types.bash
+	url = github.com:reconquest/types.bash
