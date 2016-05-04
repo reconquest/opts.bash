@@ -1,4 +1,4 @@
-source ${0%/*}/vendor/github.com/reconquest/types.bash/types.bash
+source ${BASH_SOURCE[0]%/*}/vendor/github.com/reconquest/types.bash/types.bash
 
 function opts:parse() {
     if [ $# -lt 1 ]; then
