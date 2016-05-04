@@ -30,7 +30,7 @@ opts:parse <opts-var> <args-var>
            (-<short-opt-name>[:[:]] | --<long-opt-name>[:[:]])... -- "${@}"
 ```
 
-Semantics of using `:` sama as in `getopt`:
+Semantics of using `:` same as in `getopt`:
 
 * `:` after option name specify, that option requires argument;
 * `::` after option name specify, that option may have argument;
