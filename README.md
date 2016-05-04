@@ -27,7 +27,7 @@ echo ${args[@]}
 
 ```bash
 opts:parse <opts-var> <args-var>
-           (-<short-opt-name>[:[:]] | --<long-opt-name>[:[:]]) -- "${@}"
+           (-<short-opt-name>[:[:]] | --<long-opt-name>[:[:]])... -- "${@}"
 ```
 
 Semantics of using `:` sama as in `getopt`:
