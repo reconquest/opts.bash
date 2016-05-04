@@ -22,3 +22,15 @@ echo ${opts[--long-option2]:-empty}
 
 echo ${args[@]}
 ```
+
+# Reference
+
+```bash
+opts:parse <opts-var> <args-var>
+           (-<short-opt-name>[:[:]] | --<long-opt-name>[:[:]]) -- "${@}"
+```
+
+Semantics of using `:` sama as in `getopt`:
+
+* `:` after option name specify, that option requires argument;
+* `::` after option name specify, that option may have argument;
