@@ -66,8 +66,8 @@ function opts:parse() {
 
     eval set -- $( \
         getopt \
-            -o "${_short_opts[@]:-}" \
-            ${_long_opts:+-l "${_long_opts[@]}"} \
+            -o "$(printf "%s" "${_short_opts[@]:-}")" \
+            ${_long_opts:+-l "$(printf "%s," "${_long_opts[@]}")"} \
             -- "$0" \
             "${@}" \
         )
