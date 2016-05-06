@@ -33,12 +33,16 @@ function opts:parse() {
     local _short_opts=()
     local _long_opts=()
     local _all_opts=()
+    local -A _opts_with_arg
 
     while [ $# -gt 0 ]; do
         case "$1" in
             --)
                 break
                 ;;
+            -*:)
+                _opts_with_arg[$1]=true
+                ;;&
             --*)
                 _long_opts+=(${1#--*})
                 ;;
@@ -83,7 +87,9 @@ function opts:parse() {
                 ;;
             -*)
                 _opt_name="$1"
-                eval $_opts\[$_opt_name\]=true
+                if [ ! "${_opts_with_arg[$_opt_name]:-}" ]; then
+                    eval $_opts\[$_opt_name\]=\$\(\(\${$_opts\[$_opt_name\]:-0} + 1\)\)
+                fi
                 ;;
             *)
                 eval $_opts\[$_opt_name\]=$(printf "%q" "$1")
