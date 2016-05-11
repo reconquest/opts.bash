@@ -88,7 +88,9 @@ function opts:parse() {
             -*)
                 _opt_name="$1"
                 if [ ! "${_opts_with_arg[$_opt_name]:-}" ]; then
-                    eval $_opts\[$_opt_name\]=\$\(\(\${$_opts\[$_opt_name\]:-0} + 1\)\)
+                    eval $_opts\[$_opt_name\]='$((' \
+                        \${$_opts\[$_opt_name\]:-0}+1 \
+                    '))'
                 fi
                 ;;
             *)
