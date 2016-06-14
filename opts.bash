@@ -1,4 +1,9 @@
-source ${BASH_SOURCE[0]%/*}/vendor/github.com/reconquest/types.bash/types.bash
+if ! declare -f import:source &>/dev/null; then
+    _base_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+    source $_base_dir/vendor/github.com/reconquest/import.bash/import.bash
+fi
+
+import:source "github.com/reconquest/types.bash"
 
 function opts:parse() {
     if [ $# -lt 1 ]; then
