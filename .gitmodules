@@ -4,3 +4,6 @@
 [submodule "vendor/github.com/reconquest/types.bash"]
 	path = vendor/github.com/reconquest/types.bash
 	url = https://github.com/reconquest/types.bash
+[submodule "vendor/github.com/reconquest/import.bash"]
+	path = vendor/github.com/reconquest/import.bash
+	url = https://github.com/reconquest/import.bash
