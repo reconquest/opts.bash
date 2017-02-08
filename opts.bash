@@ -28,7 +28,7 @@ function opts:parse() {
     fi >&2
 
     if ! types:is-array $_args; then
-        echo "opts:parse: first argument should be name of the variable that"
+        echo "opts:parse: second argument should be name of the variable that"
         echo "is declared as array with 'declare -a' or 'local -a'"
         return 4
     fi >&2
