@@ -92,12 +92,17 @@ function opts:parse() {
                 ;;
             -*)
                 _opt_name="$1"
-                if [ ! "${_opts_with_arg[$_opt_name]:-}" ]; then
+                if [ "${_opts_with_arg[${_opt_name}:]:-}" ]; then
+                    shift
+                else
                     eval $_opts\[$_opt_name\]='$((' \
                         \${$_opts\[$_opt_name\]:-0}+1 \
                     '))'
+
+                    shift
+                    continue
                 fi
-                ;;
+                ;;&
             *)
                 eval $_opts\[$_opt_name\]=$(printf "%q" "$1")
                 ;;
