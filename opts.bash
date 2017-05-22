@@ -73,13 +73,19 @@ function opts:parse() {
 
     shift
 
-    eval set -- $( \
+    local _parsed_opts
+
+    # local declaration will supress exit code, so separate assignment is
+    # required
+    _parsed_opts=$(
         getopt \
             -o "$(printf "%s" "${_short_opts[@]:-}")" \
             ${_long_opts:+-l "$(printf "%s," "${_long_opts[@]}")"} \
             -- "$0" \
-            "${@}" \
-        )
+            "${@}"
+    )
+
+    eval set -- "$_parsed_opts"
 
     eval $_opts='()'
 
