@@ -84,6 +84,9 @@ function opts:parse() {
             -- "$0" \
             "${@}"
     )
+    if [[ "$?" -gt 0 ]]; then
+        return 1
+    fi
 
     eval set -- "$_parsed_opts"
 
